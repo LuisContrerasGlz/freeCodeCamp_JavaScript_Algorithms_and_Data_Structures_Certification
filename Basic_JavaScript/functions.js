@@ -77,3 +77,15 @@ function myOutfit() {
 }
 
 myOutfit();
+
+/*We can pass values into a function with arguments. 
+You can use a return statement to send a value back out of a function.*/
+
+//Create a function timesFive that accepts one argument, multiplies it by 5, and returns the new value.
+
+function timesFive(num) {
+    return num * 5;
+  }
+  var answer = timesFive(5);
+
+  

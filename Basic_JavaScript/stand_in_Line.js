@@ -7,11 +7,10 @@ The nextInLine function should then return the element that was removed.*/
 
 function nextInLine(arr, item) {
     // Only change code below this line
-    
-    return item;
+    arr.push(item);
+    return arr.shift();
     // Only change code above this line
     
-  
   }
   
   // Setup

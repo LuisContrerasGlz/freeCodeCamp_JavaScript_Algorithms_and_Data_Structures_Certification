@@ -178,3 +178,29 @@ function phoneticLookup(val) {
     }
     // Only change code above this line
   }
+
+  //Sometimes you may want to store data in a flexible Data Structure. A JavaScript object is one way to handle flexible data. They allow for arbitrary combinations of strings, numbers, booleans, arrays, functions, and objects.
+  //Add a new album to the myMusic array. Add artist and title strings, release_year number, and a formats array of strings.
+
+  var myMusic = [
+    {
+      "artist": "Billy Joel",
+      "title": "Piano Man",
+      "release_year": 1973,
+      "formats": [
+        "CD",
+        "8T",
+        "LP"
+      ],
+      "gold": true
+    },
+    {
+        "artist": "Drake bell",
+        "title": "it`s only time",
+        "release_year": 2006,
+        "formats": [
+            "CD",
+            "Digital"
+          ]
+    }
+  ];

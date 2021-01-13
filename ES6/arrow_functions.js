@@ -66,4 +66,81 @@ const myConcat = (arr1, arr2) => arr1.concat(arr2);
 
 console.log(myConcat([1, 2], [3, 4, 5]));
 
+/* In order to help us create more flexible functions, ES6 introduces default parameters for functions.
 
+const greeting = (name = "Anonymous") => "Hello " + name;
+
+console.log(greeting("John")); // Hello John
+console.log(greeting()); // Hello Anonymous
+
+The default parameter kicks in when the argument is not specified (it is undefined). 
+As you can see in the example above, the parameter name will receive its default value "Anonymous" when you do not provide a value for the parameter. 
+You can add default values for as many parameters as you want.
+*/
+
+//Modify the function increment by adding default parameters so that it will add 1 to number if value is not specified.
+
+// Only change code below this line
+const increment = (number, value) => number + value;
+// Only change code above this line
+
+//Result
+const increment = (number, value=1) => number + value;
+
+/* In order to help us create more flexible functions, ES6 introduces the rest parameter for function parameters. With the rest parameter, you can create functions that take a variable number of arguments. 
+These arguments are stored in an array that can be accessed later from inside the function.
+function howMany(...args) {
+  return "You have passed " + args.length + " arguments.";
+}
+console.log(howMany(0, 1, 2)); // You have passed 3 arguments.
+console.log(howMany("string", null, [1, 2, 3], { })); // You have passed 4 arguments.
+
+The rest parameter eliminates the need to check the args array and allows us to apply map(), filter() and reduce() on the parameters array.
+*/
+
+//Modify the function sum using the rest parameter in such a way that the function sum is able to take any number of arguments and return their sum.
+
+const sum = (x, y, z) => {
+    const args = [x, y, z];
+    return args.reduce((a, b) => a + b, 0);
+  }
+//Result
+  const sum = (...args) => {
+    return args.reduce((a, b) => a + b, 0);
+  }
+  console.log(sum(1, 2, 3)); // 6
+
+  /* ES6 introduces the spread operator, which allows us to expand arrays and other expressions in places where multiple parameters or elements are expected.
+  The ES5 code below uses apply() to compute the maximum value in an array:
+
+  var arr = [6, 89, 3, 45];
+  var maximus = Math.max.apply(null, arr); // returns 89
+
+  We had to use Math.max.apply(null, arr) because Math.max(arr) returns NaN. Math.max() expects comma-separated arguments, but not an array. 
+  The spread operator makes this syntax much better to read and maintain.
+
+  const arr = [6, 89, 3, 45];
+  const maximus = Math.max(...arr); // returns 89
+
+  ...arr returns an unpacked array. In other words, it spreads the array. However, the spread operator only works in-place, like in an argument to a function or in an array literal. 
+  The following code will not work:
+
+  const spreaded = ...arr; // will throw a syntax error
+  */
+
+  //Copy all contents of arr1 into another array arr2 using the spread operator.
+
+  const arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+  let arr2;
+
+  arr2 = [];  // Change this line
+
+  console.log(arr2);
+
+  //Result
+  const arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+  let arr2 
+
+  arr2 = [...arr1];  // Change this line
+
+  console.log(arr2);

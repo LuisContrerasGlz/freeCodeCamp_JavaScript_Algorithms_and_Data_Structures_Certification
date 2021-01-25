@@ -178,4 +178,109 @@ let quoteSample =
 let vowelRegex = /[aeiou]/gi; 
 let result = quoteSample.match(vowelRegex); 
 
+/* You saw how you can use character sets to specify a group of characters to match, but that's a lot of typing when you need to match a large range of characters (for example, every letter in the alphabet). 
+Fortunately, there is a built-in feature that makes this short and simple.
+
+Inside a character set, you can define a range of characters to match using a hyphen character: -.
+
+For example, to match lowercase letters a through e you would use [a-e].
+
+let catStr = "cat";
+let batStr = "bat";
+let matStr = "mat";
+let bgRegex = /[a-e]at/;
+catStr.match(bgRegex); // Returns ["cat"]
+batStr.match(bgRegex); // Returns ["bat"]
+matStr.match(bgRegex); // Returns null
+*/
+
+/*
+Match all the letters in the string quoteSample.
+
+Note
+Be sure to match both upper- and lowercase letters.****
+*/
+
+let quoteSample = "The quick brown fox jumps over the lazy dog.";
+let alphabetRegex = /[a-z]/gi; 
+let result = quoteSample.match(alphabetRegex);
+
+/*
+Using the hyphen (-) to match a range of characters is not limited to letters. It also works to match a range of numbers.
+For example, /[0-5]/ matches any number between 0 and 5, including the 0 and 5.
+
+Also, it is possible to combine a range of letters and numbers in a single character set.
+
+let jennyStr = "Jenny8675309";
+let myRegex = /[a-z0-9]/ig;
+// matches all letters and numbers in jennyStr
+jennyStr.match(myRegex);
+*/
+
+/*
+Create a single regex that matches a range of letters between h and s, and a range of numbers between 2 and 6. 
+Remember to include the appropriate flags in the regex.*/
+
+let quoteSample = "Blueberry 3.141592653s are delicious.";
+let myRegex = /[h-s2-6]/gi; 
+let result = quoteSample.match(myRegex); 
+
+/* 
+So far, you have created a set of characters that you want to match, but you could also create a set of characters that you do not want to match. 
+These types of character sets are called negated character sets.
+
+To create a negated character set, you place a caret character (^) after the opening bracket and before the characters you do not want to match.
+or example, /[^aeiou]/gi matches all characters that are not a vowel. Note that characters like ., !, [, @, / and white space are matched - the negated vowel character set only excludes the vowel characters.
+*/
+
+//Create a single regex that matches all characters that are not a number or a vowel. Remember to include the appropriate flags in the regex.
+let quoteSample = "3 blind mice.";
+let myRegex = /[^aeiou^0-9]/gi; 
+let result = quoteSample.match(myRegex);
+
+/* Sometimes, you need to match a character (or group of characters) that appears one or more times in a row. 
+This means it occurs at least once, and may be repeated.
+
+You can use the + character to check if that is the case. 
+Remember, the character or pattern has to be present consecutively. 
+That is, the character has to repeat one after the other.
+
+For example, /a+/g would find one match in "abc" and return ["a"]. 
+Because of the +, it would also find a single match in "aabc" and return ["aa"].
+
+If it were instead checking the string "abab", it would find two matches and return ["a", "a"] because the a characters are not in a row - there is a b between them. 
+Finally, since there is no "a" in the string "bcd", it wouldn't find a match.
+*/
+
+//You want to find matches when the letter s occurs one or more times in "Mississippi". Write a regex that uses the + sign.
+
+let difficultSpelling = "Mississippi";
+let myRegex = /s+/g; 
+let result = difficultSpelling.match(myRegex);
+
+/*The last challenge used the plus + sign to look for characters that occur one or more times. 
+There's also an option that matches characters that occur zero or more times.
+
+The character to do this is the asterisk or star: *.
+
+let soccerWord = "gooooooooal!";
+let gPhrase = "gut feeling";
+let oPhrase = "over the moon";
+let goRegex = /go*/;
+/*
+soccerWord.match(goRegex); // Returns ["goooooooo"]
+gPhrase.match(goRegex); // Returns ["g"]
+oPhrase.match(goRegex); // Returns null
+*/
+
+/*
+For this challenge, chewieQuote has been initialized as "Aaaaaaaaaaaaaaaarrrgh!" behind the scenes. 
+Create a regex chewieRegex that uses the * character to match an uppercase "A" character immediately followed by zero or more lowercase "a" characters in chewieQuote. Your regex does not need flags or character classes, and it should not match any of the other quotes.
+*/
+
+let chewieQuote = "Aaaaaaaaaaaaaaaarrrgh!";
+//result
+let chewieRegex = /Aa*/; 
+let result = chewieQuote.match(chewieRegex);
+
 

@@ -134,3 +134,115 @@ function mixedNumbers(arr) {
   }
   
   console.log(popShift(['challenge', 'is', 'not', 'complete'])); 
+
+/*Ok, so we've learned how to remove elements from the beginning and end of arrays using shift() and pop()
+but what if we want to remove an element from somewhere in the middle? Or remove more than one element at once? 
+Well, that's where splice() comes in. splice() allows us to do just that: remove any number of consecutive elements from anywhere in an array
+
+splice() can take up to 3 parameters, but for now, we'll focus on just the first 2. 
+The first two parameters of splice() are integers which represent indexes, or positions, of the array that splice() is being called upon.
+And remember, arrays are zero-indexed, so to indicate the first element of an array, we would use 0. 
+splice()'s first parameter represents the index on the array from which to begin removing elements, while the second parameter indicates the number of elements to delete. 
+
+For example:
+let array = ['today', 'was', 'not', 'so', 'great'];
+
+array.splice(2, 2);
+// remove 2 elements beginning with the 3rd element
+// array now equals ['today', 'was', 'great']
+
+splice() not only modifies the array it's being called on, but it also returns a new array containing the value of the removed elements:
+let array = ['I', 'am', 'feeling', 'really', 'happy'];
+
+let newArray = array.splice(3, 2);
+// newArray equals ['really', 'happy']
+*/
+
+//We've initialized an array arr. Use splice() to remove elements from arr, so that it only contains elements that sum to the value of 10.
+
+const arr = [2, 4, 5, 1, 7, 5, 2, 1];
+arr.splice(1,4);
+console.log(arr);
+
+/*Remember in the last challenge we mentioned that splice() can take up to three parameters? 
+Well, you can use the third parameter, comprised of one or more element(s), to add to the array. 
+This can be incredibly useful for quickly switching out an element, or a set of elements, for another.
+
+const numbers = [10, 11, 12, 12, 15];
+const startIndex = 3;
+const amountToDelete = 1;
+
+numbers.splice(startIndex, amountToDelete, 13, 14);
+// the second entry of 12 is removed, and we add 13 and 14 at the same index
+console.log(numbers);
+// returns [ 10, 11, 12, 13, 14, 15 ]
+
+Here, we begin with an array of numbers. Then, we pass the following to splice(): The index at which to begin deleting elements (3), the number of elements to be deleted (1), and the remaining arguments (13, 14) will be inserted starting at that same index. 
+Note that there can be any number of elements (separated by commas) following amountToDelete, each of which gets inserted.
+*/
+
+//We have defined a function, htmlColorNames, which takes an array of HTML colors as an argument. Modify the function using splice() to remove the first two elements of the array and add 'DarkSalmon' and 'BlanchedAlmond' in their respective places.
+
+function htmlColorNames(arr) {
+   arr.splice(0,2, 'DarkSalmon', 'BlanchedAlmond' )
+    return arr;
+  }
+  
+  console.log(htmlColorNames(['DarkGoldenRod', 'WhiteSmoke', 'LavenderBlush', 'PaleTurquoise', 'FireBrick']));
+
+/*The next method we will cover is slice(). 
+Rather than modifying an array, slice() copies or extracts a given number of elements to a new array, leaving the array it is called upon untouched.
+slice() takes only 2 parameters — the first is the index at which to begin extraction, and the second is the index at which to stop extraction 
+(extraction will occur up to, but not including the element at this index). 
+
+let weatherConditions = ['rain', 'snow', 'sleet', 'hail', 'clear'];
+
+let todaysWeather = weatherConditions.slice(1, 3);
+// todaysWeather equals ['snow', 'sleet'];
+// weatherConditions still equals ['rain', 'snow', 'sleet', 'hail', 'clear']
+
+In effect, we have created a new array by extracting elements from an existing array.
+*/
+
+//We have defined a function, forecast, that takes an array as an argument. Modify the function using slice() to extract information from the argument array and return a new array that contains the elements 'warm' and 'sunny'.
+
+function forecast(arr) {
+    // change code below this line
+    return arr.slice(2, 4);
+  }
+  
+  // do not change code below this line
+  console.log(
+    forecast(["cold", "rainy", "warm", "sunny", "cool", "thunderstorms"])
+  );
+
+/* While slice() allows us to be selective about what elements of an array to copy, among several other useful tasks,
+ES6's new spread operator allows us to easily copy all of an array's elements, in order, with a simple and highly readable syntax. 
+The spread syntax simply looks like this: ...
+
+In practice, we can use the spread operator to copy an array like so:
+
+let thisArray = [true, true, undefined, false, null];
+let thatArray = [...thisArray];
+// thatArray equals [true, true, undefined, false, null]
+// thisArray remains unchanged and thatArray contains the same elements as thisArray
+*/
+
+/*We have defined a function, copyMachine which takes arr (an array) and num (a number) as arguments. 
+The function is supposed to return a new array made up of num copies of arr. We have done most of the work for you, but it doesn't work quite right yet. 
+Modify the function using spread syntax so that it works correctly (hint: another method we have already covered might come in handy here!).
+*/
+
+function copyMachine(arr, num) {
+    let newArr = [];
+    while (num >= 1) {
+      // change code below this line
+      newArr.push([...arr]);
+      // change code above this line
+      num--;
+    }
+    return newArr;
+  }
+  
+  // change code here to test different cases:
+  console.log(copyMachine([true, false, true], 2));

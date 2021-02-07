@@ -189,4 +189,101 @@ let users = {
   
   console.log(isEveryoneHere(users));
 
+/* Sometimes you may need to iterate through all the keys within an object. 
+This requires a specific syntax in JavaScript called a for...in statement. 
+For our users object, this could look like:
+
+for (let user in users) {
+  console.log(user);
+}
+
+// logs:
+Alan
+Jeff
+Sarah
+Ryan
+
+In this statement, we defined a variable user, and as you can see, this variable was reset during each iteration to each of the object's keys as the statement looped through the object, 
+resulting in each user's name being printed to the console. 
+NOTE: Objects do not maintain an ordering to stored keys like arrays do; 
+thus a key's position on an object, or the relative order in which it appears, is irrelevant when referencing or accessing that key.*/
+
+/*We've defined a function countOnline which accepts one argument (a users object).
+ Use a for...in statement within this function to loop through the users object passed into the function and return the number of users whose online property is set to true. */
+
+ function countOnline(usersObj) {
+    let result = 0;
+    for (let user in usersObj) {
+      if (usersObj[user].online === true) {
+        result++;
+      }
+    }
+    return result;
+  }
+
+  /*We can also generate an array which contains all the keys stored in an object using the Object.keys() method and passing in an object as the argument.
+  this will return an array with strings representing each property in the object. 
+  Again, there will be no specific order to the entries in the array.*/
+
+  //Finish writing the getArrayOfUsers function so that it returns an array containing all the properties in the object it receives as an argument.
+
+  let users = {
+    Alan: {
+      age: 27,
+      online: false
+    },
+    Jeff: {
+      age: 32,
+      online: true
+    },
+    Sarah: {
+      age: 48,
+      online: false
+    },
+    Ryan: {
+      age: 19,
+      online: true
+    }
+  };
+  
+  function getArrayOfUsers(obj) {
+   return Object.keys(obj);
+  
+  }
+  
+  console.log(getArrayOfUsers(users));
+
+  /*Now you've seen all the basic operations for JavaScript objects. You can add, modify, and remove key-value pairs, check if keys exist, and iterate over all the keys in an object. 
+  Now that you've learned the basics of arrays and objects, you're fully prepared to begin tackling more complex problems using JavaScript!
+  */
+
+  /* Take a look at the object we've provided in the code editor. The user object contains three keys. 
+  The data key contains five keys, one of which contains an array of friends. 
+  From this, you can see how flexible objects are as data structures. We've started writing a function addFriend. 
+  Finish writing it so that it takes a user object and adds the name of the friend argument to the array stored in user.data.friends and returns that array.
+  */
+
+ let user = {
+    name: "Kenneth",
+    age: 28,
+    data: {
+      username: "kennethCodesAllDay",
+      joinDate: "March 26, 2016",
+      organization: "freeCodeCamp",
+      friends: ["Sam", "Kira", "Tomo"],
+      location: {
+        city: "San Francisco",
+        state: "CA",
+        country: "USA"
+      }
+    }
+  };
+  
+  function addFriend(userObj, friend) {
+    userObj.data.friends.push(friend);
+    return userObj.data.friends;
+  }
+  
+  console.log(addFriend(user, "Pete"));
+
 

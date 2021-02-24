@@ -89,3 +89,44 @@ function frankenSplice(arr1, arr2, n) {
       
         return arr.length;
       }
+
+/* Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
+
+For example, ["hello", "Hello"], should return true because all of the letters in the second string are present in the first, ignoring case.
+
+The arguments ["hello", "hey"] should return false because the string "hello" does not contain a "y".
+
+Lastly, ["Alien", "line"], should return true because all of the letters in "line" are present in "Alien".*/
+
+function mutation(arr) {
+  let firstElement = arr[0].toLowerCase();
+  let secondElement = arr[1].toLowerCase();
+
+  for (let i = 0; i < secondElement.length; i ++){
+    let letter = secondElement[i].toLowerCase();
+    if (firstElement.indexOf(letter) === -1) {
+      return false;
+    }
+  }
+  return true;
+}
+
+mutation(["hello", "hey"]);
+
+//Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.
+function chunkArrayInGroups(arr, size) {
+  var temp = [];
+  var result = [];
+
+  for (var a = 0; a < arr.length; a++) {
+    if (a % size !== size - 1) temp.push(arr[a]);
+    else {
+      temp.push(arr[a]);
+      result.push(temp);
+      temp = [];
+    }
+  }
+
+  if (temp.length !== 0) result.push(temp);
+  return result;
+}

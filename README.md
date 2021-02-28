@@ -14,3 +14,5 @@ Created to practice store the progress on the different sections and tasks neede
 8. Functional Programming.
 9. Intermediate Algorithm Scripting.
 10. JavaScript Algorithms and Data Structures Projects.
+
+![JS](./picture.png)

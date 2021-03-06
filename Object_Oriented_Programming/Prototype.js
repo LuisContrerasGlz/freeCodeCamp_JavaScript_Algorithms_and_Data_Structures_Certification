@@ -77,4 +77,85 @@ function Dog(name) {
     }
   }
 
+  /* There is a special constructor property located on the object instances duck and beagle that were created in the previous challenges:
+
+  let duck = new Bird();
+  let beagle = new Dog();
+
+  console.log(duck.constructor === Bird); 
+  console.log(beagle.constructor === Dog);
+
+  Both of these console.log calls would display true in the console.
+
+  Note that the constructor property is a reference to the constructor function that created the instance. 
+  The advantage of the constructor property is that it's possible to check for this property to find out what kind of object it is. 
+
+  Here's an example of how this could be used:
+
+  function joinBirdFraternity(candidate) {
+  if (candidate.constructor === Bird) {
+    return true;
+  } else {
+     return false;
+    }
+  }
+
+  Note: Since the constructor property can be overwritten (which will be covered in the next two challenges) it’s generally better to use the instanceof method to check the type of an object. */
+
+  //Write a joinDogFraternity function that takes a candidate parameter and, using the constructor property, return true if the candidate is a Dog, otherwise return false.
+
+  function Dog(name) {
+    this.name = name;
+  }
   
+  // Only change code below this line
+  function joinDogFraternity(candidate) {
+    if (candidate.constructor === Dog) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  /* Up until now you have been adding properties to the prototype individually:
+
+  Bird.prototype.numLegs = 2;
+
+  This becomes tedious after more than a few properties.
+
+  Bird.prototype.eat = function() {
+  console.log("nom nom nom");
+  }
+
+  Bird.prototype.describe = function() {
+  console.log("My name is " + this.name);
+  }
+
+  A more efficient way is to set the prototype to a new object that already contains the properties. 
+  This way, the properties are added all at once:
+
+  Bird.prototype = {
+  numLegs: 2, 
+  eat: function() {
+    console.log("nom nom nom");
+  },
+  describe: function() {
+    console.log("My name is " + this.name);
+    }
+ }; */
+
+ //Add the property numLegs and the two methods eat() and describe() to the prototype of Dog by setting the prototype to a new object.
+
+ function Dog(name) {
+  this.name = name;
+}
+Dog.prototype = {
+  // Add your code below this line
+  numLegs: 2,
+  eat: function() {
+    console.log("nom nom nom");
+  },
+  describe: function() {
+    console.log("My name is " + this.name);
+  }
+};

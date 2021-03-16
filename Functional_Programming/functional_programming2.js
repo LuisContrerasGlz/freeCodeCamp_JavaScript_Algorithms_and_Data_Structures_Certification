@@ -18,4 +18,65 @@ function sliceArray(anim, beginSlice, endSlice) {
   var inputAnim = ["Cat", "Dog", "Tiger", "Zebra", "Ant"];
   sliceArray(inputAnim, 1, 3);
 
+/*A common pattern while working with arrays is when you want to remove items and keep the rest of the array. 
+JavaScript offers the splice method for this, which takes arguments for the index of where to start removing items, then the number of items to remove. 
+If the second argument is not provided, the default is to remove items through the end.
+However, the splice method mutates the original array it is called on. Here's an example:
+
+var cities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
+cities.splice(3, 1);
+
+Here splice returns the string London and deletes it from the cities array. cities will have the value ["Chicago", "Delhi", "Islamabad", "Berlin"].
+
+As we saw in the last challenge, the slice method does not mutate the original array, but returns a new one which can be saved into a variable. 
+Recall that the slice method takes two arguments for the indices to begin and end the slice (the end is non-inclusive), and returns those items in a new array. 
+Using the slice method instead of splice helps to avoid any array-mutating side effects.*/
+
+/*Rewrite the function nonMutatingSplice by using slice instead of splice. 
+It should limit the provided cities array to a length of 3, and return a new array with only the first three items.
+
+Do not mutate the original array provided to the function.*/
+
+function nonMutatingSplice(cities) {
   
+    return cities.slice(0, 3);
+
+  }
+  var inputCities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
+  nonMutatingSplice(inputCities);
+
+/*Concatenation means to join items end to end. JavaScript offers the concat method for both strings and arrays that work in the same way. 
+For arrays, the method is called on one, then another array is provided as the argument to concat, which is added to the end of the first array. 
+It returns a new array and does not mutate either of the original arrays. Here's an example:
+
+[1, 2, 3].concat([4, 5, 6]);
+
+The returned array would be [1, 2, 3, 4, 5, 6]. */
+
+//Use the concat method in the nonMutatingConcat function to concatenate attach to the end of original. The function should return the concatenated array.
+
+function nonMutatingConcat(original, attach) {
+    return original.concat(attach);
+  }
+  var first = [1, 2, 3];
+  var second = [4, 5];
+  nonMutatingConcat(first, second);
+
+/*Functional programming is all about creating and using non-mutating functions.
+The last challenge introduced the concat method as a way to combine arrays into a new one without mutating the original arrays. 
+Compare concat to the push method. push adds an item to the end of the same array it is called on, which mutates that array. Here's an example:
+
+var arr = [1, 2, 3];
+arr.push([4, 5, 6]);
+
+arr would have a modified value of [1, 2, 3, [4, 5, 6]], which is not the functional programming way.
+concat offers a way to add new items to the end of an array without any mutating side effects. */
+
+//Change the nonMutatingPush function so it uses concat to add newItem to the end of original instead of push. The function should return an array.
+
+function nonMutatingPush(original, newItem) {
+    return original.concat(newItem);
+  }
+  var first = [1, 2, 3];
+  var second = [4, 5];
+  nonMutatingPush(first, second);

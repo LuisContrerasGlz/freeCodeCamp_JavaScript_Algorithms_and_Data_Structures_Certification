@@ -159,3 +159,128 @@ function myReplace(str, before, after) {
   
     return str;
   }
+
+  /* The DNA strand is missing the pairing element. Take each character, get its pair, and return the results as a 2d array.
+
+Base pairs are a pair of AT and CG. Match the missing element to the provided character.
+
+Return the provided character as the first element in each array.
+
+For example, for the input GCG, return [["G", "C"], ["C","G"], ["G", "C"]]
+
+The character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating array.*/
+
+function pairElement(str) {
+    // Return each strand as an array of two elements, the original and the pair.
+    var paired = [];
+  
+    // Function to check with strand to pair.
+    var search = function(char) {
+      switch (char) {
+        case "A":
+          paired.push(["A", "T"]);
+          break;
+        case "T":
+          paired.push(["T", "A"]);
+          break;
+        case "C":
+          paired.push(["C", "G"]);
+          break;
+        case "G":
+          paired.push(["G", "C"]);
+          break;
+      }
+    };
+  
+    // Loops through the input and pair.
+    for (var i = 0; i < str.length; i++) {
+      search(str[i]);
+    }
+  
+    return paired;
+  }
+  
+  // test here
+  pairElement("GCG");
+
+  /* Find the missing letter in the passed letter range and return it.
+
+If all letters are present in the range, return undefined.*/
+
+function fearNotLetter(str) {
+    for (let i = 1; i < str.length; ++i) {
+      if (str.charCodeAt(i) - str.charCodeAt(i - 1) > 1) {
+        return String.fromCharCode(str.charCodeAt(i - 1) + 1);
+      }
+    }
+  }
+
+/*Write a function that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays.
+
+In other words, all values present from all arrays should be included in their original order, but with no duplicates in the final array.
+
+The unique numbers should be sorted by their original order, but the final array should not be sorted in numerical order.
+
+Check the assertion tests for examples. */
+
+function uniteUnique() {
+    var concatArr = [];
+    var i = 0;
+    while (arguments[i]) {
+      concatArr = concatArr.concat(arguments[i]);
+      i++;
+    }
+    uniqueArray = concatArr.filter(function(item, pos) {
+      return concatArr.indexOf(item) == pos;
+    });
+    return uniqueArray;
+  }
+  
+  // test here
+  uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+// Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
+
+function convertHTML(str) {
+    // Use Object Lookup to declare as many HTML entities as needed.
+    const htmlEntities = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&apos;"
+    };
+    // Using a regex, replace characters with it's corresponding html entity
+    return str.replace(/([&<>\"'])/g, match => htmlEntities[match]);
+  }
+  
+  // test here
+  convertHTML("Dolce & Gabbana");
+
+/*Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num.
+
+The first two numbers in the Fibonacci sequence are 1 and 1. Every additional number in the sequence is the sum of the two previous numbers. The first six numbers of the Fibonacci sequence are 1, 1, 2, 3, 5 and 8.
+
+For example, sumFibs(10) should return 10 because all odd Fibonacci numbers less than or equal to 10 are 1, 1, 3, and 5. */
+
+function sumFibs(num) {
+    // Perform checks for the validity of the input
+    if (num <= 0) return 0;
+  
+    // Create an array of fib numbers till num
+    const arrFib = [1, 1];
+    let nextFib = 0;
+  
+    // We put the new Fibonacci numbers to the front so we
+    // don't need to calculate the length of the array on each
+    // iteration
+    while ((nextFib = arrFib[0] + arrFib[1]) <= num) {
+      arrFib.unshift(nextFib);
+    }
+  
+    // We filter the array to get the odd numbers and reduce them to get their sum.
+    return arrFib.filter(x => x % 2 != 0).reduce((a, b) => a + b);
+  }
+  
+  // test here
+  sumFibs(4);

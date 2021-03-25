@@ -65,3 +65,43 @@ function smallestCommons(arr) {
   }
   
   smallestCommons([1, 5]);
+
+/* Given the array arr, iterate through and remove each element starting from the first element (the 0 index) until the function func returns true when the iterated element is passed through it.
+
+Then return the rest of the array once the condition is satisfied, otherwise, arr should be returned as an empty array. */
+
+function dropElements(arr, func) {
+    let result = [];
+
+    for (let i = 0; i < arr.length; i++) {
+       console.log(arr[i], func(arr[i]), arr.slice(i));
+       if (func(arr[i])) {
+           return arr.slice(i);
+       } 
+    }
+
+    return result;
+  }
+  
+dropElements([1, 2, 3], function(n) {return n < 3; });
+
+//Flatten a nested array. You must account for varying levels of nesting.
+
+function steamrollArray(arr) {
+  return arr.flat().flat().flat();
+}
+
+steamrollArray([1, [2], [3, [[4]]]]);
+
+function steamrollArray(arr) {
+    while( arr.some(dataPoint => {
+        return Array.isArray(dataPoint);
+    })) {
+        arr = arr.flat();
+    }
+    return arr;
+  }
+  
+  steamrollArray([1, [2], [3, [[4]]]]);
+
+  

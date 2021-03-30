@@ -18,3 +18,5 @@ Created to practice store the progress on the different sections and tasks neede
 ![JS](./picture.png)
 
 ![Cert](./cert.png)
+
+To verify certificate https://freecodecamp.org/certification/luisfcontreras/javascript-algorithms-and-data-structures

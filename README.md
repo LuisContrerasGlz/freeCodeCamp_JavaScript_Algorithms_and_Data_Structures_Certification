@@ -16,3 +16,5 @@ Created to practice store the progress on the different sections and tasks neede
 10. JavaScript Algorithms and Data Structures Projects.
 
 ![JS](./picture.png)
+
+![Cert](./cert.png)

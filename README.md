@@ -21,4 +21,6 @@ Created to practice store the progress on the different sections and tasks neede
 
 To verify certificate https://freecodecamp.org/certification/luisfcontreras/javascript-algorithms-and-data-structures
 
-For more certifications and complete profile please check https://www.linkedin.com/in/luis-francisco-contreras-gonzalez-45791715a/
+For more certifications and complete profile please check my LinkedIn:
+
+https://www.linkedin.com/in/luis-francisco-contreras-gonzalez-45791715a/

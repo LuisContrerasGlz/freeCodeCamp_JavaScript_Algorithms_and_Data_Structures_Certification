@@ -23,4 +23,4 @@ To verify certificate https://freecodecamp.org/certification/luisfcontreras/java
 
 For more certifications and complete profile please check my LinkedIn:
 
-https://www.linkedin.com/in/luis-francisco-contreras-gonzalez-45791715a/
+https://www.linkedin.com/in/luis-contreras-gonzalez/
